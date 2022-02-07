@@ -10,22 +10,22 @@ pip install -r requirements.txt
 ______________________________________________
 Baseline_
     Backend Directory
-        __init__.py
-        asgi.py - (used for server setting)
-         setting.py - (used for the full app settings, security, middleware, static directories, etc..)
-        url.py - (used for routing back-end urls) - only has admin panrl and front-end urls
-        wsgi.py - (used for more server settings)
+•	__init__.py
+•	asgi.py - (used for server setting)
+•	setting.py - (used for the full app settings, security, middleware, static directories, etc..)
+•	url.py - (used for routing back-end urls) - only has admin panrl and front-end urls
+•	wsgi.py - (used for more server settings)
 _______________________________________________
 dashboard
     Front-End Directory
-        __init__.py
-        admin.py - (set admin settings for django admin panel)- not in use
-        apps.py - (unsure of use) - not in use
-        migration - (changes made in the database) -not in use
-        models.py - (used for creating database tables and pushes them into the migration directory)
-        static - (directory used for holding Images, CSS files, Javascript files and CSV files)
-        templates - (used for holding all html files)
-        test.py - (used for writing test for the front-end)
+•	__init__.py
+•	admin.py - (set admin settings for django admin panel)- not in use
+•	apps.py - (unsure of use) - not in use
+•	migration - (changes made in the database) -not in use
+•	models.py - (used for creating database tables and pushes them into the migration directory)
+•	static - (directory used for holding Images, CSS files, Javascript files and CSV files)
+•	templates - (used for holding all html files)
+•	test.py - (used for writing test for the front-end)
         urls.py - (used for routing all urls in the front end)
         views.py - (used for writing the data that post to the html files) 
 ________________________________________________
