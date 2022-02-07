@@ -1,14 +1,14 @@
 #Baseline_
 Web App Directory 
 _____________________________________________
-###Installation
+Installation
 Use the package manage [pip](https://pip.pypa.io/en/stable/) to install requirements.txt file 
 to install all required packages.
 ```bash
 pip install -r requirements.txt
 ```
 ______________________________________________
-###Baseline_
+Baseline_
     Backend Directory
         __init__.py
         asgi.py - (used for server setting)
@@ -16,7 +16,7 @@ ______________________________________________
         url.py - (used for routing back-end urls) - only has admin panrl and front-end urls
         wsgi.py - (used for more server settings)
 _______________________________________________
-###dashboard
+dashboard
     Front-End Directory
         __init__.py
         admin.py - (set admin settings for django admin panel)- not in use
@@ -29,14 +29,14 @@ _______________________________________________
         urls.py - (used for routing all urls in the front end)
         views.py - (used for writing the data that post to the html files) 
 ________________________________________________
-###.gitignore - used for ignore files in git.
+.gitignore - used for ignore files in git.
 ________________________________________________
-###manage.py - used to run django app
+manage.py - used to run django app
 Use command below to run server on local host to view site in action.
 ```bash
 python manage.py runserver
 ```
 _________________________________________________
-###db.sqlite - preinstalled once you run the django server
+db.sqlite - preinstalled once you run the django server
     This is where we need to point the pipline file to save our data.
 _________________________________________________
