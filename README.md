@@ -12,7 +12,7 @@ Baseline_
     Backend Directory
         __init__.py
         asgi.py - (used for server setting)
-        setting.py - (used for the full app settings, security, middleware, static directories, etc..)
+         setting.py - (used for the full app settings, security, middleware, static directories, etc..)
         url.py - (used for routing back-end urls) - only has admin panrl and front-end urls
         wsgi.py - (used for more server settings)
 _______________________________________________
