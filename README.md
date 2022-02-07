@@ -1,4 +1,4 @@
-Baseline_
+#Baseline_
 Web App Directory 
 _____________________________________________
 Installation
@@ -26,8 +26,8 @@ dashboard
 •	static - (directory used for holding Images, CSS files, Javascript files and CSV files)
 •	templates - (used for holding all html files)
 •	test.py - (used for writing test for the front-end)
-        urls.py - (used for routing all urls in the front end)
-        views.py - (used for writing the data that post to the html files) 
+•	urls.py - (used for routing all urls in the front end)
+•	views.py - (used for writing the data that post to the html files) 
 ________________________________________________
 .gitignore - used for ignore files in git.
 ________________________________________________
