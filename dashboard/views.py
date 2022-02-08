@@ -19,27 +19,24 @@ CHOROPLETH_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_ARGS.json'
 CHOROPLETH_LAYOUT_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_LAYOUT_ARGS.json'
 
 
-def get_df(path,args={}):
-    return pd.read_csv(path,**args)
-
-
-def get_choropleth(df,args):
-    return px.choropleth(df,**args)
-
-
-def update_choropleth_layout(choropleth,layout_args):
-    choropleth.update_layout(**layout_args)
-
-CHOROPLETH_ARGS = json.load(open(CHOROPLETH_ARGS_PATH))
-CHOROPLETH_LAYOUT_ARGS = json.load(open(CHOROPLETH_LAYOUT_ARGS_PATH))
-
-DATA_ARGS = json.load(open(DATA_ARGS_PATH))
-DF = get_df(DATA_PATH,DATA_ARGS)
-
-
 # Create your views here.
 @csrf_exempt
 def index(request):
+    def get_df(path,args={}):
+        return pd.read_csv(path,**args)
+
+    def get_choropleth(df,args):
+        return px.choropleth(df,**args)
+    
+    def update_choropleth_layout(choropleth,layout_args):
+        choropleth.update_layout(**layout_args)
+
+    DATA_ARGS = json.load(open(DATA_ARGS_PATH))
+    DF = get_df(DATA_PATH,DATA_ARGS)
+
+    CHOROPLETH_ARGS = json.load(open(CHOROPLETH_ARGS_PATH))
+    CHOROPLETH_LAYOUT_ARGS = json.load(open(CHOROPLETH_LAYOUT_ARGS_PATH))
+
     usa = get_choropleth(DF,CHOROPLETH_ARGS)
     update_choropleth_layout(usa,CHOROPLETH_LAYOUT_ARGS)
 
