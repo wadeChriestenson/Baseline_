@@ -15,6 +15,7 @@ from plotly.subplots import make_subplots
 DATA_PATH = 'dashboard/static/csv/population.csv'
 DATA_ARGS_PATH = 'dashboard/static/json/DATA_ARGS.json'
 
+
 CHOROPLETH_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_ARGS.json'
 CHOROPLETH_LAYOUT_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_LAYOUT_ARGS.json'
 
@@ -27,7 +28,7 @@ def index(request):
 
     def get_choropleth(df,args):
         return px.choropleth(df,**args)
-    
+
     def update_choropleth_layout(choropleth,layout_args):
         choropleth.update_layout(**layout_args)
 
