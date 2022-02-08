@@ -8,16 +8,14 @@ to install all required packages.
 pip install -r requirements.txt
 ```
 
-## Baseline_
-    Backend Directory
+## ***Baseline_*** - Backend Directory
 - __init__.py
 - asgi.py - (used for server setting)
 - setting.py - (used for the full app settings, security, middleware, static directories, etc..)
 - url.py - (used for routing back-end urls) - only has admin panrl and front-end urls
 - wsgi.py - (used for more server settings)
 
-## dashboard
-    Front-End Directory
+## ***dashboard*** - Front-End Directory
 - __init__.py
 - admin.py - (set admin settings for django admin panel)- not in use
 - apps.py - (unsure of use) - not in use
@@ -29,13 +27,13 @@ pip install -r requirements.txt
 - urls.py - (used for routing all urls in the front end)
 - views.py - (used for writing the data that post to the html files) 
 
-## .gitignore - used for ignore files in git.
+## ***.gitignore*** - used for ignore files in git.
 
-## manage.py - used to run django app
+## ***manage.py*** - used to run django app
 Use command below to run server on local host to view site in action.
 ```bash
 python manage.py runserver
 ```
 
-## db.sqlite - preinstalled once you run the django server
+## ***db.sqlite*** - preinstalled once you run the django server
 This is where we need to point the pipline file to save our data.
