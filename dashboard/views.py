@@ -12,68 +12,37 @@ from plotly.offline import plot
 from plotly.subplots import make_subplots
 
 
+DATA_PATH = 'dashboard/static/csv/population.csv'
+DATA_ARGS_PATH = 'dashboard/static/json/DATA_ARGS.json'
+
+CHOROPLETH_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_ARGS.json'
+CHOROPLETH_LAYOUT_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_LAYOUT_ARGS.json'
+
+
+def get_df(path,args={}):
+    return pd.read_csv(path,**args)
+
+
+def get_choropleth(df,args):
+    return px.choropleth(df,**args)
+
+
+def update_choropleth_layout(choropleth,layout_args):
+    choropleth.update_layout(**layout_args)
+
+CHOROPLETH_ARGS = json.load(open(CHOROPLETH_ARGS_PATH))
+CHOROPLETH_LAYOUT_ARGS = json.load(open(CHOROPLETH_LAYOUT_ARGS_PATH))
+
+DATA_ARGS = json.load(open(DATA_ARGS_PATH))
+DF = get_df(DATA_PATH,DATA_ARGS)
+
+
 # Create your views here.
 @csrf_exempt
 def index(request):
-    # JSON file to draw county choropleth
-    with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
-        counties = json.load(response)
-    # CSV to pull population per county for Choropleth
-    df = pd.read_csv("dashboard/static/csv/population.csv",
-                     # on_bad_lines='skip',
-                     # names=['county_name', 'fips', 'tot_pop', 'uep'],
-                     # sep='delimiter',
-                     # engine='python',
-                     dtype={"fips": str})
-    # Plotly function to render Choropleth
-    usa = px.choropleth(df,
-                        geojson=counties,
-                        locations='fips',
-                        color='uep',
-                        color_continuous_scale="Portland",
-                        range_color=(0, 10),
-                        hover_name='county_name',
-                        hover_data=['fips', 'uep', 'tot_pop'],
-                        labels={"fips": "FIPS", 'uep': 'Unemployment Rate', 'tot_pop': 'Population'},
-                        template='presentation',
+    usa = get_choropleth(DF,CHOROPLETH_ARGS)
+    update_choropleth_layout(usa,CHOROPLETH_LAYOUT_ARGS)
 
-                        )
-    usa.update_layout(
-        coloraxis_colorbar=dict(
-            thicknessmode="pixels",
-            thickness=30,
-            lenmode="pixels",
-            len=600,
-            yanchor="top",
-            y=0.9,
-            xanchor='left',
-            x=1,
-            ticks="inside",
-            ticksuffix=" %",
-            dtick=2
-        ),
-        title={
-            'text': "United States Unemployment per County ",
-            'y': 0.05,
-            'x': 0.45,
-            'font_size': 28,
-            'xanchor': 'center',
-            'yanchor': 'top'},
-        # separators=',',
-        hoverlabel=dict(
-            bgcolor="white",
-            font_size=16,
-            font_family="Rockwell"
-        ),
-        margin=dict(l=20, r=20, t=20, b=30),
-        autosize=False,
-        width=1860,
-        height=850
-    )
-    usa.update_geos(
-        scope='usa',
-        visible=False,
-    )
     # Getting HTML needed to render the plot.
     plot_div = plot(usa,
                     output_type='div',
@@ -86,7 +55,7 @@ def index(request):
 @require_POST
 def acceptFips(request):
     if request.method == 'POST':
-        fips = request.POST.get('fip')
+        fips = request.POST.get('fips')
         print(json.dumps(fips))
         return JsonResponse(fips, safe=False)
 
