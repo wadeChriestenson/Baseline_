@@ -11,6 +11,8 @@ from django.views.decorators.http import require_POST
 from plotly.offline import plot
 from plotly.subplots import make_subplots
 
+from .forms import fipsNumber
+
 
 DATA_PATH = 'dashboard/static/csv/population.csv'
 DATA_ARGS_PATH = 'dashboard/static/json/DATA_ARGS.json'
@@ -46,20 +48,22 @@ def index(request):
                     output_type='div',
                     include_plotlyjs=False)
 
-    return render(request, 'index.html', context={'plot_div': plot_div})
-
-
-@csrf_exempt
-@require_POST
-def acceptFips(request):
-    if request.method == 'POST':
-        fips = request.POST.get('fips')
-        print(json.dumps(fips))
-        return JsonResponse(fips, safe=False)
-
+    getFips = fipsNumber()
+    return render(request, 'index.html', context={'plot_div': plot_div, 'getFips': getFips})
 
 @csrf_exempt
 def charts(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = fipsNumber(request.POST)
+        # check whether it's valid:
+        print(form)
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            fips = form['fips']
+            print(type(fips))
+            print('Fips: ', fips)
     template = 'none'
     color = 'whitesmoke'
     fontColor = '#221F1F'
