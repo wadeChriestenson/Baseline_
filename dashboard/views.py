@@ -61,7 +61,7 @@ def charts(request):
         print(form)
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            fips = form['fips']
+            fips = form.cleand_data['fips']
             print(type(fips))
             print('Fips: ', fips)
     template = 'none'
