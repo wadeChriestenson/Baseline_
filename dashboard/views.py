@@ -55,15 +55,9 @@ def index(request):
 def charts(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = fipsNumber(request.POST)
-        # check whether it's valid:
-        print(form)
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            fips = form.cleand_data['fips']
-            print(type(fips))
-            print('Fips: ', fips)
+        fips = request.POST['fips']
+        print(type(fips))
+        print('Fips: ', fips)
     template = 'none'
     color = 'whitesmoke'
     fontColor = '#221F1F'
