@@ -39,4 +39,4 @@ python manage.py runserver
 Admin database
 
 ## ***baseline.db*** - database from Chads pipeline script
-data for app database
+ Baseline database
