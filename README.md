@@ -36,4 +36,6 @@ python manage.py runserver
 ```
 
 ## ***db.sqlite*** - preinstalled once you run the django server
-This is where we need to point the pipline file to save our data.
+Admin server
+
+## ***baseline.db*** - database from Chads pipeline script
