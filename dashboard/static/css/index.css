@@ -1,6 +1,6 @@
 body{
   overflow-x: hidden;
-font-family: 'Cardo', serif;
+    font-family: 'Playfair Display', serif;
   background-color: #FFFFFF;
 }
 #webContainer{
@@ -25,7 +25,7 @@ font-family: 'Cardo', serif;
 
 }
 #logoPic{
-  margin-top: 27px;
+  margin-top: 34px;
   height: 70px;
   width: 70px;
     background: -webkit-linear-gradient(#FFFFFF, #FFFFFF);
