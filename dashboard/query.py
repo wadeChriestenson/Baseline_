@@ -4,14 +4,6 @@ from .views import fipsNumber
 import os
 
 
-def FIP(request):
-    if request.method == 'POST':
-        FIPS = request.POST['fips']
-        print(type(FIPS))
-        print('Fips: ', FIPS)
-        return FIPS
-
-
 def fips_year_query(year, fips):
     """
     Query CRA & FDIC data by year & fips code from baseline database
@@ -184,11 +176,21 @@ def fips_query(fips, years=[]):
     return fips_df, nbr_df, nbr_avg
 
 
+def FIP(request):
+    if request.method == 'POST':
+        FIPS = request.POST['fips']
+        print(type(FIPS))
+        print('Fips: ', FIPS)
+        return FIPS
+
+
 ############################################################################################
 # expample query for Boulder County, CO                                                     #
 fips = FIP
 years = ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019']  #
+
 ############################################################################################
+
 
 fips_df, nbr_df, nbr_avg = fips_query(fips=fips,
                                       years=years)  # specify fips as integer & years as list of strings (2010-2019)
