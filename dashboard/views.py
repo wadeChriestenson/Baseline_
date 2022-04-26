@@ -13,10 +13,8 @@ from plotly.subplots import make_subplots
 
 from .forms import fipsNumber
 
-
 DATA_PATH = 'dashboard/static/csv/population.csv'
 DATA_ARGS_PATH = 'dashboard/static/json/DATA_ARGS.json'
-
 
 CHOROPLETH_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_ARGS.json'
 CHOROPLETH_LAYOUT_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_LAYOUT_ARGS.json'
@@ -25,23 +23,23 @@ CHOROPLETH_LAYOUT_ARGS_PATH = 'dashboard/static/json/CHOROPLETH_LAYOUT_ARGS.json
 # Create your views here.
 @csrf_exempt
 def index(request):
-    def get_df(path,args={}):
-        return pd.read_csv(path,**args)
+    def get_df(path, args={}):
+        return pd.read_csv(path, **args)
 
-    def get_choropleth(df,args):
-        return px.choropleth(df,**args)
+    def get_choropleth(df, args):
+        return px.choropleth(df, **args)
 
-    def update_choropleth_layout(choropleth,layout_args):
+    def update_choropleth_layout(choropleth, layout_args):
         choropleth.update_layout(**layout_args)
 
     DATA_ARGS = json.load(open(DATA_ARGS_PATH))
-    DF = get_df(DATA_PATH,DATA_ARGS)
+    DF = get_df(DATA_PATH, DATA_ARGS)
 
     CHOROPLETH_ARGS = json.load(open(CHOROPLETH_ARGS_PATH))
     CHOROPLETH_LAYOUT_ARGS = json.load(open(CHOROPLETH_LAYOUT_ARGS_PATH))
 
-    usa = get_choropleth(DF,CHOROPLETH_ARGS)
-    update_choropleth_layout(usa,CHOROPLETH_LAYOUT_ARGS)
+    usa = get_choropleth(DF, CHOROPLETH_ARGS)
+    update_choropleth_layout(usa, CHOROPLETH_LAYOUT_ARGS)
 
     # Getting HTML needed to render the plot.
     plot_div = plot(usa,
@@ -51,13 +49,15 @@ def index(request):
     getFips = fipsNumber()
     return render(request, 'index.html', context={'plot_div': plot_div, 'getFips': getFips})
 
+
+
+
 @csrf_exempt
 def charts(request):
+    from .query import FIP
     # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        fips = request.POST['fips']
-        print(type(fips))
-        print('Fips: ', fips)
+    FIP(request)
+    # print(fip)
     template = 'none'
     color = 'whitesmoke'
     fontColor = '#221F1F'
