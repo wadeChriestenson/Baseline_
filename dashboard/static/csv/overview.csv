@@ -1,0 +1,27 @@
+dash_sum_snp.csv,2018 Snapshot Data File,,,,,dash_sum_ts.csv,2010-2018 Time Series Data File
+fips,county fips,,,,,fips,county fips
+county_name,county name,,,,,county_name,county name
+year,year,,,,,year,year
+tot_pop,total county population,,,,,sm_ln_amt,total volume of business loans < $100k issued by banks in the county
+med_hh_inc,median household income in county,,,,,med_ln_amt,total volume of business $100k < loans < $250k issued by banks in the county
+estabs,total number of establishments in county,,,,,lg_ln_amt,total volume of business $250k < loans < $1M issued by banks in the county
+emp,total employment in county,,,,,tot_pop,total county population
+tot_hh_18,total number of households in county,,,,,med_hh_inc,median household income in county
+tot_hh_no_int_18,total households without internet,,,,,estabs_entry_rate,percent of establishment that opened in the county in 2018
+tot_hh_brdbnd_18,total households with broadband internet,,,,,estabs_exit_rate,percent of establishment that closed in the county in 2018
+unemployment_pct,unemployment percentage in county,,,,,,
+branches,total number of bank branches in county,,,,,,
+in_st_hq,number of bank branches with in-state headquarters,,,,,,
+depsumbr,total bank deposits in county,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,Figures,2010-2018
+Table 1,unemployment rate,,,,,Figure 1,line chart: population - county vs. neighbors vs. state vs. nation
+,population,,,,,Figure 2,line chart: household income - county vs. neighbors vs. state vs. nation
+,median income,,,,,Figure 3,stacked bar chart: loan volume by loan size - within-county only
+,average employment per establishment,,,,,Figure 4,bar chart: establishment birth and death rates
+,proportion of households with no internet,,,,,,
+,proportion of households with broadband,,,,,,
+,total number of bank branches,,,,,,
+,proportion of branches with in-state headquarters,,,,,,
+,total bank deposits,,,,,,

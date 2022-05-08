@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Baseline</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index1111111.css' %}">
   <link rel="icon" href="{%  static 'img/logo.png' %}" type="image/gif" sizes="96x96">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,6 @@
 <script src="https://cdn.plot.ly/plotly-1.58.4.min.js"></script>
 </head>
 <body>
-<div id="webContainer">
     <header id="header">
             <div id="logoWrapper">
                 <img id="logoPic" src="{%  static 'img/logo.png' %}" alt="Baseline logo, a combo graph">
@@ -24,15 +23,14 @@
             </div>
 </header>
 <div id="main">
-
-
-            <div id="usa">{{ plot_div | safe }}</div>
+    <aside></aside>
+    <div id="usa">{{ plot_div | safe }}</div>
         <form action="charts.html" method="post"  id="fipsForm">
-    {% csrf_token %}
-    {{ getFips }}
-    <input type="submit" value="Submit" id="submit">
-</form>
-</div>
+        {% csrf_token %}
+        {{ getFips }}
+        <input type="submit" value="Submit" id="submit">
+        </form>
+    <aside></aside>
 </div>
 <script src="{% static 'js/index_1-1.js' %}" rel="script"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

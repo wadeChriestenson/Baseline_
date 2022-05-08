@@ -12,7 +12,7 @@ def fips_year_query(year, fips):
     --> e.g. BDS data is not queried for 2019 because it is not currently available
     """
 
-    conn = sqlite3.connect('baseline.db')  # connect to baseline database
+    conn = sqlite3.connect('../baseline.db')  # connect to baseline database
     cur = conn.cursor()  # open cursor
 
     if int(year) > 2018:

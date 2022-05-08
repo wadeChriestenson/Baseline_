@@ -36,7 +36,6 @@ python manage.py runserver
 ```
 
 ## ***db.sqlite*** - preinstalled once you run the django server
-Admin database
+Database for user, admin and baseline data.
 
-## ***baseline.db*** - database from Chads pipeline script
- Baseline database
+
