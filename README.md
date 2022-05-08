@@ -30,11 +30,17 @@ pip install -r requirements.txt
 ## ***.gitignore*** - used for ignore files in git.
 
 ## ***manage.py*** - used to run django app
+To setup database use the following two commands.
+```bash
+python manage.py makemigrations
+```
+```bash
+python manage.py migrate
+```
 Use command below to run server on local host to view site in action.
 ```bash
 python manage.py runserver
 ```
-
 ## ***db.sqlite*** - preinstalled once you run the django server
 Database for user, admin and baseline data.
 
