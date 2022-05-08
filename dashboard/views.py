@@ -54,9 +54,10 @@ def index(request):
 
 @csrf_exempt
 def charts(request):
-    from .query import FIP
-    # if this is a POST request we need to process the form data
-    FIP(request)
+    if request.method == 'POST':
+        FIPS = request.POST['fips']
+        print(type(FIPS))
+        print('Fips: ', FIPS)
     # print(fip)
     template = 'none'
     color = 'whitesmoke'
