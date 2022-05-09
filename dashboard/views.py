@@ -127,14 +127,14 @@ def charts(request):
         rowOddColor = 'white'
         table = go.Figure(data=[go.Table(
             header=dict(
-                values=['Snap Shot:', name + ', ' + state],
+                values=[name+',', state],
                 line_color='darkslategray',
                 fill_color=headerColor,
                 font=dict(
                     color=fontColor,
                     size=26,
                 ),
-                align=['left', 'center'],
+                align=['right', 'left'],
                 height=35
             ),
             cells=dict(values=[
