@@ -2,12 +2,12 @@ from django.db import models
 
 
 # Create your models here.
-class dash_sum_snp(models.Model):
+class snapShot(models.Model):
     state = models.CharField(max_length=100)
     state_ab = models.CharField(max_length=2)
     county = models.CharField(max_length=100)
     county_ab = models.CharField(max_length=2)
-    fips = models.IntegerField()
+    fips = models.IntegerField(primary_key=True)
     county_name = models.CharField(max_length=100)
     year = models.IntegerField()
     tot_pop = models.IntegerField()
@@ -23,11 +23,11 @@ class dash_sum_snp(models.Model):
     depsumbr = models.IntegerField()
 
 
-class dash_sum_ts(models.Model):
+class time_table(models.Model):
     state = models.CharField(max_length=100)
     state_ab = models.CharField(max_length=2)
     county = models.CharField(max_length=100)
-    county_ab = models.CharField(max_length=2)
+    county_ab = models.CharField(max_length=3)
     fips = models.IntegerField()
     county_name = models.CharField(max_length=100)
     year = models.IntegerField()
@@ -39,3 +39,14 @@ class dash_sum_ts(models.Model):
     estabs = models.IntegerField()
     estabs_entry = models.IntegerField()
     estabs_exit = models.IntegerField()
+
+
+class Meta:
+    ordering = ('year',)
+
+
+class neighbors(models.Model):
+    countyname = models.CharField(max_length=100)
+    fips = models.IntegerField()
+    neighborname = models.CharField(max_length=100)
+    fipsneighbors = models.IntegerField()
