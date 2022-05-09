@@ -5,7 +5,7 @@
   "thickness": 25, "lenmode": "pixels",
   "len": 450,
   "yanchor": "top",
-  "y": 0.9,
+  "y": 0.8,
   "xanchor": "left",
   "x": 0.9,
   "ticks": "inside",
@@ -15,7 +15,7 @@
   "title":
   {
     "text": "United States Unemployment per County ",
-    "y": 0.05,
+    "y": 0.15,
     "x": 0.45,
     "font_size": 28,
     "xanchor": "center",
