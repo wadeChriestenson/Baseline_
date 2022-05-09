@@ -92,14 +92,6 @@ def charts(request):
                        hovertemplate=None,
                        line=dict(color='firebrick', width=2)
                        ))
-        pop_line.add_trace(
-            go.Scatter(x=year,
-                       y=fakeNum,
-                       mode="markers+lines",
-                       name="Neighbors AVG",
-                       hovertemplate=None,
-                       line=dict(color='royalblue', width=2)
-                       ))
         pop_line.update_layout(
             template=template,
             margin={"r": 5, "t": 20, "l": 60, "b": 30},
@@ -249,15 +241,15 @@ def charts(request):
 
         #  render plotly chart 4
         bank_stack = go.Figure(data=[
-            go.Bar(name='County Small Loans',
+            go.Bar(name='Small Loans',
                    x=county['year'],
                    y=county['sm_ln_amt'],
                    marker_color='firebrick'),
-            go.Bar(name='Avg Neighbors Small Loans',
+            go.Bar(name='Medium Loans',
                    x=county['year'],
                    y=county['med_ln_amt'],
                    marker_color='royalblue'),
-            go.Bar(name='Avg Neighbors Small Loans',
+            go.Bar(name='Large Loans',
                    x=county['year'],
                    y=county['lg_ln_amt'],
                    marker_color='orange'),
@@ -353,14 +345,6 @@ def charts(request):
                        line=dict(color='firebrick', width=2)
                        )),
 
-        hhi_line.add_trace(
-            go.Scatter(x=year,
-                       y=fakeNum,
-                       mode="markers+lines",
-                       name="Neighbors AVG",
-                       hovertemplate=None,
-                       line=dict(color='royalblue', width=2)
-                       ))
 
         hhi_line.update_layout(
             # separators=',',
