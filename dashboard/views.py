@@ -55,11 +55,20 @@ def charts(request):
         year = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
         snap_shot = models.snapShot.objects.values().filter(fips=FIPS)
         time_series = models.time_table.objects.all().values().filter(fips=FIPS)
+
+        neighbors = models.neighbors.objects.values().filter(fips=FIPS)
+        neighborsFips = []
+        for x in neighbors:
+            neighborsFips.append(x['fipsneighbors'])
+        nextDoor = pd.DataFrame(neighborsFips)
+        print(nextDoor)
+
         countyData = []
         for time in time_series:
             countyData.append(time)
         county = pd.DataFrame(countyData)
-        print(county)
+
+        # print(county)
         # print(snap_shot[0]['year'])
         # print(snap_shot[0])
         # print(type(FIPS))
@@ -144,8 +153,8 @@ def charts(request):
                     ['Medium Household Income'],
                     ['Unemployment Rate'],
                     ['Number of Employed People'],
-                    ['% of Households with Broadband'],
-                    ['% of Households without Internet'],
+                    ['Number of Households with Broadband'],
+                    ['Number of Households without Internet'],
                     ['Total Bank Branches'],
                     ['Banks with In-State Headquarters'],
                     ['Total Deposits'],
@@ -157,8 +166,8 @@ def charts(request):
                     ['$' + str(snap_shot[0]['med_hh_inc'])],
                     [str(snap_shot[0]['unemployment_pct']) + '%'],
                     [snap_shot[0]['emp']],
-                    [str(snap_shot[0]['tot_hh_brdbnd_18']) + '%'],
-                    [str(snap_shot[0]['tot_hh_no_int_18']) + '%'],
+                    [snap_shot[0]['tot_hh_brdbnd_18']],
+                    [snap_shot[0]['tot_hh_no_int_18']],
                     [snap_shot[0]['branches']],
                     [snap_shot[0]['in_st_hq']],
                     [snap_shot[0]['depsumbr']],
@@ -410,6 +419,5 @@ def charts(request):
                       })
 
 
-@csrf_exempt
-def returnIndex(request):
-    return redirect(index)
+def back(request):
+    return redirect('index')

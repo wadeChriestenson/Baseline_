@@ -48,12 +48,22 @@ body{
              0px 8px 13px rgba(245,245,245,0.1),
              0px 18px 23px rgba(245,245,245,0.1);
 }
+button{
+    background: transparent;
+    border: none;
+    width: 35px;
+    height: 35px;
+}
+img{
+    height: 35px;
+    width: 35px;
+}
 .back{
   font-size: 14px;
   width: 35px;
   height: 35px;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 57vw;
   transition: box-shadow 1s;
   border-radius: 55px;
@@ -74,8 +84,8 @@ body{
     cursor: pointer;
 }
 #dashboard{
-    display:  flex;
-    flex-direction: column;
+    display:  grid;
+    gap: 10px;
 }
 #top {
   display: flex;
@@ -133,4 +143,5 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
     border-radius: 10px;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
 

@@ -4,5 +4,5 @@ from dashboard import views
 urlpatterns = [
     path('index', views.index, name='index'),
     path('charts.html', views.charts, name='charts'),
-    path('', views.returnIndex, name='backButton')
+    path('', views.back, name='back')
 ]
