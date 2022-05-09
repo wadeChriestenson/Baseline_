@@ -1,7 +1,9 @@
 body{
   overflow-x: hidden;
     font-family: 'Playfair Display', serif;
-  /*background-color: #221F1F;*/
+  background-image: url("../img/cloud.png");
+      background-repeat: no-repeat;
+    background-size: cover;
 }
 #header{
   margin-top: -10px;
