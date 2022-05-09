@@ -29,23 +29,27 @@
         </button>
         </form>
     </header>
+<div class="emptySpace"></div>
 <div id="main">
-
      <div id="dashboard">
           {% autoescape off %}
          <div id="top">
-             <div id="pop">{{ pop|safe }}</div>
              <div id="snap">{{ snap|safe }}</div>
+{#         <div id="county">{{ county|safe }}</div>#}
+              </div>
+              <div class="emptySpace"></div>
+              <div id="middle">
+              <div id="pop">{{ pop|safe }}</div>
              <div id="employment">{{ employment|safe }}</div>
-         </div>
+              </div>
+              <div class="emptySpace"></div>
               <div id="bottom">
-                  <div id="bank">{{ bank|safe }}</div>
-                  <div id="county">{{ county|safe }}</div>
+              <div id="bank">{{ bank|safe }}</div>
                   <div id="household">{{ household|safe }}</div>
               </div>
            {% endautoescape %}
      </div>
-
+<footer></footer>
 </div>
 </div>
 <script src="{%  static 'js/charts.js' %}" rel="script"></script>

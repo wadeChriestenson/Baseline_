@@ -41,18 +41,20 @@ body{
   letter-spacing: 5px;
   height: 120px;
   margin-left: 1vw;
-  margin-top: 1vh;
+  margin-top: .5vh;
   font-size: 84px;
   text-align: left;
   text-shadow: 0px 4px 3px rgba(245,245,245,0.4),
              0px 8px 13px rgba(245,245,245,0.1),
              0px 18px 23px rgba(245,245,245,0.1);
+    -webkit-animation: hue 10s infinite linear;
 }
 button{
     background: transparent;
     border: none;
     width: 35px;
     height: 35px;
+    cursor: pointer;
 }
 img{
     height: 35px;
@@ -66,22 +68,25 @@ img{
   margin-top: 40px;
   margin-left: 57vw;
   transition: box-shadow 1s;
-  border-radius: 55px;
+  border-radius: 50%;
 }
 .back:hover {
     font-size: 14px;
-    border-radius: 55px;
+    border-radius: 50%;
     /*background-image: linear-gradient(to right, #83EAF1 , #63A4FF);*/
     /*border: 1px solid #221F1F;*/
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-    rgba(0, 0, 0, 0.06) 0px 2px 1px,
-    rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px,
-    rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    /*box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,*/
+    /*rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,*/
+    /*rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,*/
+    /*rgba(0, 0, 0, 0.06) 0px 2px 1px,*/
+    /*rgba(0, 0, 0, 0.09) 0px 4px 2px,*/
+    /*rgba(0, 0, 0, 0.09) 0px 8px 4px,*/
+    /*rgba(0, 0, 0, 0.09) 0px 16px 8px,*/
+    /*rgba(0, 0, 0, 0.09) 0px 32px 16px;*/
     cursor: pointer;
+}
+.emptySpace{
+    height: 50px;
 }
 #dashboard{
     display:  grid;
@@ -93,55 +98,78 @@ img{
   width: 100%;
     margin-left: -10px;
 }
-#pop{
-    background-color: whitesmoke;
-  padding: 7px;
-  width: 33%;
-  border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+
 #snap {
     background-color: whitesmoke;
     /*display: flex;*/
   padding: 7px;
-  width: 33%;
+  width: 50%;
+    margin-left: 25%;
+
     border-radius: 10px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);}
+/*#county{*/
+/*    background-color: whitesmoke;*/
+/*    padding: 7px;*/
+/*  width: 50%;*/
+/*    border-radius: 10px;*/
+/*box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;*/
+/*}*/
+#middle{
+      display: flex;
+  flex-direction: row;
+  width: 100%;
+    /*margin-left: -10px;*/
+    justify-content: space-evenly;
+}
+#pop{
+    background-color: whitesmoke;
+  padding: 7px;
+  width: 45%;
+  border-radius: 10px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #employment{
     background-color: whitesmoke;
     padding: 7px;
-  width: 33%;
+  width: 45%;
     border-radius: 10px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);}
 #bottom{
   /*padding-top: 5px;*/
   display: flex;
   flex-direction: row;
   width: 100%;
-        margin-left: -10px;
+    /*margin-left: -10px;*/
+    justify-content: space-evenly;
 }
 #bank{
     background-color: whitesmoke;
     padding: 7px;
-  width: 33%;
+  width: 45%;
     border-radius: 10px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
 }
-#county{
-    background-color: whitesmoke;
-    padding: 7px;
-  width: 33%;
-    border-radius: 10px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
+
 #household{
     background-color: whitesmoke;
     padding: 7px;
-  width: 33%;
+  width: 45%;
     border-radius: 10px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);}
+footer{
+    height: 75px;
 }
 
-
+@-webkit-keyframes hue {
+    from{
+        -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}

@@ -140,7 +140,7 @@ def charts(request):
                 fill_color=headerColor,
                 font=dict(
                     color=fontColor,
-                    size=18,
+                    size=26,
                 ),
                 align=['left', 'center'],
                 height=35
@@ -178,10 +178,10 @@ def charts(request):
                 align=['left', 'center'],
                 font=dict(
                     color=fontColor,
-                    size=16,
+                    size=24,
                     family="Cardo",
                 ),
-                height=25
+                height=35
 
             ))
         ])
@@ -189,7 +189,7 @@ def charts(request):
             autosize=True,
             separators=',',
             template=template,
-            margin={"r": 10, "t": 40, "l": 10, "b": 0},
+            margin={"r": 5, "t": 0, "l": 0, "b": 0},
             paper_bgcolor=color,
             plot_bgcolor=color
         )
