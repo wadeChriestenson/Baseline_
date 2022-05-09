@@ -111,7 +111,7 @@ img{
     margin-left: 25%;
 
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);}
 /*#county{*/
 /*    background-color: whitesmoke;*/
@@ -132,14 +132,14 @@ img{
   padding: 7px;
   width: 45%;
   border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 8px;
 }
 #employment{
     background-color: whitesmoke;
     padding: 7px;
   width: 45%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);}
 #bottom{
   /*padding-top: 5px;*/
@@ -154,7 +154,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 7px;
   width: 45%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);
 }
 
@@ -163,7 +163,7 @@ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 7px;
   width: 45%;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);}
 footer{
     height: 75px;
