@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Baseline</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{%  static 'css/charts11111111.css' %}">
+  <link rel="stylesheet" href="{%  static 'css/charts11111.css' %}">
   <link rel="icon" href=" {%  static 'img/logo.png' %}" type="image/gif" sizes="96x96">
             <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,11 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-1.58.4.min.js"></script>
+    <script src="{%  static 'js/charts.js' %}" rel="script"></script>
+
 </head>
 <body>
+<a id="topBtn"></a>
 <div id="webContainer">
     <header id="header">
             <div id="logoWrapper">
@@ -29,6 +32,7 @@
         </button>
         </form>
     </header>
+
 <div class="emptySpace"></div>
 <div id="main">
      <div id="dashboard">
@@ -49,10 +53,11 @@
               </div>
            {% endautoescape %}
      </div>
-<footer></footer>
+<footer>
+</footer>
 </div>
 </div>
-<script src="{%  static 'js/charts.js' %}" rel="script"></script>
+<a href="#topBtn" class="myBtn">Go to Top</a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
