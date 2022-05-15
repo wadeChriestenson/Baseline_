@@ -13,6 +13,8 @@ body{
 }
 #webContainer{
   width: 100vw;
+    display: flex;
+    flex-direction: column;
   /*margin-left: -10px;*/
   height: 105vh;
 }
@@ -99,6 +101,7 @@ img{
 #dashboard{
     display:  grid;
     gap: 10px;
+
 }
 #top {
   display: flex;
@@ -113,10 +116,10 @@ img{
   padding: 7px;
   width: 50%;
     margin-left: 25%;
-
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);}
+    backdrop-filter: blur(10px);
+}
 /*#county{*/
 /*    background-color: whitesmoke;*/
 /*    padding: 7px;*/
@@ -144,7 +147,8 @@ box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 8px;
   width: 45%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);}
+    backdrop-filter: blur(10px);
+}
 #bottom{
   /*padding-top: 5px;*/
   display: flex;
@@ -168,10 +172,9 @@ box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 8px;
   width: 45%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);}
-footer{
-    height: 75px;
+    backdrop-filter: blur(10px);
 }
+
 
 @-webkit-keyframes hue {
     from{
@@ -181,12 +184,22 @@ footer{
         -webkit-filter: hue-rotate(-360deg);
     }
 }
+footer{
+    display: flex;
+    flex-direction: row;
+    width: 101vw;
+    height: 100%;
+    /*border: 1px solid black;*/
+}
+.contact{
+    width: 90%;
+}
 .myBtn {
   display: block; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
+  /*position: relative; !* Fixed/sticky position *!*/
   bottom: 5px; /* Place the button at the bottom of the page */
   right: 15px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
+  /*z-index: 99; !* Make sure it does not overlap *!*/
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
   background-color: #221F1F; /* Set a background color */
@@ -195,6 +208,8 @@ footer{
   padding: 15px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
   font-size: 18px; /* Increase font size */
+    /*width: 10%;*/
+    margin-bottom: 15px;
 }
 
 .myBtn:hover {

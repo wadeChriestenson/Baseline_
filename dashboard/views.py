@@ -55,13 +55,20 @@ def charts(request):
         year = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
         snap_shot = models.snapShot.objects.values().filter(fips=FIPS)
         time_series = models.time_table.objects.all().values().filter(fips=FIPS)
+        state = snap_shot[0]['state']
+        total_state = models.time_table.objects.all().values().filter(state=state)
+        # print(total_state)
 
-        neighbors = models.neighbors.objects.values().filter(fips=FIPS)
-        neighborsFips = []
-        for x in neighbors:
-            neighborsFips.append(x['fipsneighbors'])
-        nextDoor = pd.DataFrame(neighborsFips)
-        print(nextDoor)
+        stateAvg = pd.DataFrame(total_state)
+        print(stateAvg['year'])
+        avg = stateAvg.loc[stateAvg['year'] == 2010]
+
+        # neighbors = models.neighbors.objects.values().filter(fips=FIPS)
+        # neighborsFips = []
+        # for x in neighbors:
+        #     neighborsFips.append(x['fipsneighbors'])
+        # nextDoor = pd.DataFrame(neighborsFips)
+        # print(nextDoor)
 
         countyData = []
         for time in time_series:
