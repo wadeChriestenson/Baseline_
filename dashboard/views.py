@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
+from plotly.graph_objs import Layout
 from plotly.offline import plot
 from plotly.subplots import make_subplots
 
@@ -45,7 +46,54 @@ def index(request):
                     include_plotlyjs=False)
 
     getFips = fipsNumber()
-    return render(request, 'index.html', context={'plot_div': plot_div, 'getFips': getFips})
+    stateAvg = models.snapShot.objects.all().values()
+    statesPop = pd.DataFrame(stateAvg)
+    print(statesPop.columns)
+    natAvg = round(sum(statesPop['unemployment_pct']) / len(statesPop['unemployment_pct']), 2)
+    natpop = round(sum(statesPop['tot_pop']) / len(statesPop['tot_pop']))
+    natHhi = round(sum(statesPop['med_hh_inc']) / len(statesPop['med_hh_inc']))
+    natestab = round(sum(statesPop['estabs']) / len(statesPop['estabs']))
+    noInt = round(sum(statesPop['tot_hh_no_int_18']))
+    int = round(sum(statesPop['tot_hh_brdbnd_18']))
+    print(noInt, int)
+    labels = ['Households with out Internet', 'Households with Broadband']
+    values = [noInt, int]
+
+    layout = Layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)'
+    )
+
+    intHouse = go.Figure(data=[go.Pie(labels=labels, values=values)], layout=layout)
+    intHouse.update_traces(hoverinfo='value', textinfo='percent', textfont_size=20,
+                           marker=dict(line=dict(color='#000000', width=2)), hole=.3)
+    intHouse.update_layout(legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1,
+        title_font_family="Times New Roman",
+        font=dict(
+            family="Playfair Display",
+            size=18,
+            color="black"
+        ),
+    ))
+
+    pie = plot(intHouse,
+               output_type='div',
+               include_plotlyjs=False)
+
+    return render(request, 'index.html', context={
+        'plot_div': plot_div,
+        'getFips': getFips,
+        'natAvg': natAvg,
+        'natPop': natpop,
+        'natHhi': natHhi,
+        'natEstab': natestab,
+        'pie': pie
+    })
 
 
 @csrf_exempt
@@ -60,8 +108,14 @@ def charts(request):
         # print(total_state)
 
         stateAvg = pd.DataFrame(total_state)
-        print(stateAvg['year'])
-        avg = stateAvg.loc[stateAvg['year'] == 2010]
+        print(stateAvg['tot_pop'])
+        # for year in stateAvg:
+        #     print(sum(year['tot_pop'])/len(year['tot_pop']))
+        # avg = []
+        # for year in stateAvg['year']:
+        #     avg.append(stateAvg.loc[stateAvg['year'] == year])
+        # for x in avg:
+        #     print(sum([x]['tot_pop'])/len([x]['tot_pop']))
 
         # neighbors = models.neighbors.objects.values().filter(fips=FIPS)
         # neighborsFips = []
@@ -134,7 +188,7 @@ def charts(request):
         rowOddColor = 'white'
         table = go.Figure(data=[go.Table(
             header=dict(
-                values=[name+',', state],
+                values=[name + ',', state],
                 line_color='darkslategray',
                 fill_color=headerColor,
                 font=dict(
@@ -351,7 +405,6 @@ def charts(request):
                        hovertemplate=None,
                        line=dict(color='firebrick', width=2)
                        )),
-
 
         hhi_line.update_layout(
             # separators=',',
