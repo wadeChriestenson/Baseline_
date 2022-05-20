@@ -65,7 +65,7 @@ def index(request):
     )
 
     intHouse = go.Figure(data=[go.Pie(labels=labels, values=values)], layout=layout)
-    intHouse.update_traces(hoverinfo='value', textinfo='percent', textfont_size=20,
+    intHouse.update_traces(hoverinfo='value', textinfo='percent', textfont_size=16,
                            marker=dict(line=dict(color='#000000', width=2)), hole=.3)
     intHouse.update_layout(legend=dict(
         orientation="h",
