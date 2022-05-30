@@ -55,7 +55,7 @@ def index(request):
     natestab = round(sum(statesPop['estabs']) / len(statesPop['estabs']))
     noInt = round(sum(statesPop['tot_hh_no_int_18']))
     int = round(sum(statesPop['tot_hh_brdbnd_18']))
-    print(noInt, int)
+    # print(noInt, int)
     labels = ['Households with out Internet', 'Households with Broadband']
     values = [noInt, int]
 
@@ -106,7 +106,10 @@ def charts(request):
         state = snap_shot[0]['state']
         total_state = models.time_table.objects.all().values().filter(state=state)
         # print(total_state)
-
+        natAvgPop = []
+        # for x in time_series:
+        #     natAvgPop.append(round(sum(time_series[5]) / len(time_series[5])))
+        # print(natAvgPop)
         stateAvg = pd.DataFrame(total_state)
         print(stateAvg['tot_pop'])
         # for year in stateAvg:

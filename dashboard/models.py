@@ -50,3 +50,10 @@ class neighbors(models.Model):
     fips = models.IntegerField()
     neighborname = models.CharField(max_length=100)
     fipsneighbors = models.IntegerField()
+
+
+class geoJson(models.Model):
+    type = models.CharField(max_length=7)
+    properties = models.CharField(max_length=200)
+    geometry = models.CharField(max_length=5000)
+    fips = models.IntegerField(primary_key=True)
