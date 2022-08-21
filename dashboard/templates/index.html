@@ -22,37 +22,12 @@
                 <h1 id="logo">BASELINE</h1>
             </div>
 </header>
-        <div class="emptySpace"><section></section><h2>America's Lower 48 at a Glance</h2><section></section></div>
-<div id="main">
-
-    <aside>
-        <div class="natWrap">
-        <div >Unemployment</div>
-        <div>{{ natAvg }}%</div>
-        </div>
-        <div class="natWrap">
-        <div >Household Income</div>
-        <div class="nat">${{ natHhi }}</div>
-        </div>
-        <div class="pieInt">{{ pie | safe }}</div>
-    </aside>
     <div id="usa">{{ plot_div | safe }}</div>
         <form action="charts.html" method="post"  id="fipsForm">
         {% csrf_token %}
         {{ getFips }}
         <input type="submit" value="Submit" id="submit">
         </form>
-    <aside>
-        <div class="natWrap">
-        <div>Average Population</div>
-        <div class="nat">{{ natPop }}</div>
-        </div>
-        <div class="natWrap">
-        <div>Average Businesses per County</div>
-        <div class="nat">{{ natEstab }}</div>
-        </div>
-    </aside>
-</div>
 <script src="{% static 'js/index_1-1.js' %}" rel="script"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>

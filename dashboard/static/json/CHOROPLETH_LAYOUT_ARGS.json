@@ -12,23 +12,14 @@
   "ticksuffix": " %",
   "dtick": 2
   },
-  "title":
-  {
-    "text": "Unemployment per County ",
-    "y": 0.15,
-    "x": 0.45,
-    "font_size": 28,
-    "xanchor": "center",
-    "yanchor": "top"
-  },
   "hoverlabel":
   {
     "bgcolor": "white",
     "font_size": 16
   },
   "margin":{"r": 0, "t": 0, "l": 0, "b": 0},
-  "autosize": false,
-  "width": 950,
+  "autosize": true,
+  "width": 1450,
   "height": 850,
   "geo":
   {

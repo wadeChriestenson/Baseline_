@@ -46,53 +46,10 @@ def index(request):
                     include_plotlyjs=False)
 
     getFips = fipsNumber()
-    stateAvg = models.snapShot.objects.all().values()
-    statesPop = pd.DataFrame(stateAvg)
-    print(statesPop.columns)
-    natAvg = round(sum(statesPop['unemployment_pct']) / len(statesPop['unemployment_pct']), 2)
-    natpop = round(sum(statesPop['tot_pop']) / len(statesPop['tot_pop']))
-    natHhi = round(sum(statesPop['med_hh_inc']) / len(statesPop['med_hh_inc']))
-    natestab = round(sum(statesPop['estabs']) / len(statesPop['estabs']))
-    noInt = round(sum(statesPop['tot_hh_no_int_18']))
-    int = round(sum(statesPop['tot_hh_brdbnd_18']))
-    # print(noInt, int)
-    labels = ['Households with out Internet', 'Households with Broadband']
-    values = [noInt, int]
-
-    layout = Layout(
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)'
-    )
-
-    intHouse = go.Figure(data=[go.Pie(labels=labels, values=values)], layout=layout)
-    intHouse.update_traces(hoverinfo='value', textinfo='percent', textfont_size=16,
-                           marker=dict(line=dict(color='#000000', width=2)), hole=.3)
-    intHouse.update_layout(legend=dict(
-        orientation="h",
-        yanchor="bottom",
-        y=1.02,
-        xanchor="right",
-        x=1,
-        title_font_family="Times New Roman",
-        font=dict(
-            family="Playfair Display",
-            size=18,
-            color="black"
-        ),
-    ))
-
-    pie = plot(intHouse,
-               output_type='div',
-               include_plotlyjs=False)
 
     return render(request, 'index.html', context={
         'plot_div': plot_div,
         'getFips': getFips,
-        'natAvg': natAvg,
-        'natPop': natpop,
-        'natHhi': natHhi,
-        'natEstab': natestab,
-        'pie': pie
     })
 
 
@@ -143,7 +100,6 @@ def charts(request):
         fontColor = '#221F1F'
         hoverBgColor = '#FFFFFF'
 
-        fakeNum = [2, 5, 8, 3, 6, 9, 1, 4, 7]
         name = snap_shot[0]['county']
         state = snap_shot[0]['state']
         # # Render Plotly chart 1
