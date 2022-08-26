@@ -68,8 +68,7 @@ def charts(request):
         #     natAvgPop.append(round(sum(time_series[5]) / len(time_series[5])))
         # print(natAvgPop)
         stateAvg = pd.DataFrame(total_state)
-        print(stateAvg['tot_pop'])
-        # for year in stateAvg:
+        # print(stateAvg['tot_pop'])?        # for year in stateAvg:
         #     print(sum(year['tot_pop'])/len(year['tot_pop']))
         # avg = []
         # for year in stateAvg['year']:
